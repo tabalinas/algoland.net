@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name algolandnetApp.controller:AboutCtrl
+ * @name algoland.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the algolandnetApp
+ * Controller of the algoland
  */
-angular.module('algolandnetApp')
+angular.module('algoland')
     .controller('AboutCtrl', function ($scope) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',

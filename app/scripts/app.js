@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name algolandnetApp
+ * @name algoland
  * @description
- * # algolandnetApp
+ * # algoland
  *
  * Main module of the application.
  */
 angular
-    .module('algolandnetApp', [
+    .module('algoland', [
         'ngAnimate',
         'ngCookies',
         'ngResource',
@@ -21,11 +21,18 @@ angular
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
+                controller: 'MainCtrl',
+                currentPage: 'home'
+            })
+            .when('/algo', {
+                templateUrl: 'views/algo.html',
+                controller: 'AlgoCtrl',
+                currentPage: 'algo'
             })
             .when('/about', {
                 templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
+                controller: 'AboutCtrl',
+                currentPage: 'about'
             })
             .otherwise({
                 redirectTo: '/'
