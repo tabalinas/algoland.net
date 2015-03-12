@@ -11,9 +11,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 $header-bg: #2e373c;
 $header-link-color: #fff;
+$header-height: 53px;
 $footer-bg: #2a3744;
 $footer-color: #8e8e8e;
 $footer-brand-color: #fff;
+$footer-height: 140px;
+$site-margin-bottom: -$footer-height;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -22,12 +25,23 @@ $footer-brand-color: #fff;
     padding: 0.2em 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-weight: 300;
 }
 
 h1, h2, h3 {
     font-weight: 300;
+}
+
+.site {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto $site-margin-bottom;
 }
 
 .site-header {
@@ -76,16 +90,24 @@ h1, h2, h3 {
 }
 
 .site-content {
-    margin-top: 53px;
     padding: 20px 0;
+
+    .container {
+        margin-top: $header-height;
+    }
 }
 
 .site-footer {
+    height: $footer-height;
     padding-top: 30px;
     padding-bottom: 100px;
     background: $footer-bg;
     color: $footer-color;
     font-size: 14px;
+}
+
+.footer-push {
+    height: $footer-height;
 }
 
 .footer-brand {
