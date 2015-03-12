@@ -56,13 +56,17 @@
 
     <div class="site-content">
         <div class="container">
-            <div ng-view=""></div>
+            <div class="row">
+                <div ng-view=""></div>
+            </div>
         </div>
     </div>
 
     <div class="site-footer">
         <div class="container">
-            <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+            <div class="row">
+                <al-footer></al-footer>
+            </div>
         </div>
     </div>
 </div>
@@ -118,7 +122,9 @@
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/algo.js"></script>
 <script src="scripts/controllers/about.js"></script>
+<script src="scripts/directives/footer.js"></script>
 <!-- endbuild -->
 </body>
 </html>
