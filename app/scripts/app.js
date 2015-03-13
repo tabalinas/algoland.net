@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc overview
@@ -9,17 +9,17 @@
  * Main module of the application.
  */
 
-angular.module('algoland', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
+angular.module("algoland", [
+    "ngAnimate",
+    "ngCookies",
+    "ngResource",
+    "ngRoute",
+    "ngSanitize",
+    "ngTouch"
 ]);
 
-angular.module('algoland')
-    .constant('appConfig', {
+angular.module("algoland")
+    .constant("appConfig", {
         routes: [
             { url: "/", view: "views/main.html", controller: "MainCtrl", title: "Home" },
             { url: "/algo", view: "views/algo.html", controller: "AlgoCtrl", title: "Algorithms" },
@@ -29,7 +29,7 @@ angular.module('algoland')
         twitter: "artem_tabalin"
     });
 
-angular.module('algoland')
+angular.module("algoland")
     .config(function(appConfig, $routeProvider) {
         angular.forEach(appConfig.routes, function(route) {
             $routeProvider
@@ -40,6 +40,6 @@ angular.module('algoland')
         });
 
         $routeProvider.otherwise({
-            redirectTo: '/'
+            redirectTo: "/"
         });
     });

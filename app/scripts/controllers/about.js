@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -7,11 +7,7 @@
  * # AboutCtrl
  * Controller of the algoland
  */
-angular.module('algoland')
-    .controller('AboutCtrl', function ($scope) {
-        $scope.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
+angular.module("algoland")
+    .controller("AboutCtrl", function () {
+
     });

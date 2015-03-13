@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -7,7 +7,7 @@
  * # AlgoCtrl
  * Controller of the algoland
  */
-angular.module('algoland')
-    .controller('AlgoCtrl', function ($scope) {
+angular.module("algoland")
+    .controller("AlgoCtrl", function () {
 
     });

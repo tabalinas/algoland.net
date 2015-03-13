@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 angular.module("algoland")
     .directive("alHeader", function() {

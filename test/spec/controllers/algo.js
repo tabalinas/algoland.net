@@ -1,17 +1,17 @@
 "use strict";
 
-describe("Controller: AboutCtrl", function () {
+describe("Controller: AlgoCtrl", function () {
 
     // load the controller"s module
     beforeEach(module("algoland"));
 
-    var AboutCtrl,
+    var AlgoCtrl,
         scope;
 
     // Initialize the controller and a mock scope
     beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
-        AboutCtrl = $controller("AboutCtrl", {
+        AlgoCtrl = $controller("AlgoCtrl", {
             $scope: scope
         });
     }));
