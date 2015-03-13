@@ -1,11 +1,9 @@
 $font-size-base: 16px;
-
 $brand-primary: #1b93c7;
-
 $nav-link-hover-bg: $brand-primary;
 
-$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-$fa-font-path: "../bower_components/font-awesome/fonts";
+$icon-font-path: "../fonts/bootstrap/";
+$fa-font-path: "../fonts";
 // bower:scss
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
