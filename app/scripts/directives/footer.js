@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module("algoland")
     .directive("alFooter", function() {
         return {
