@@ -9,6 +9,10 @@ angular.module("algoland")
             controller: function(appConfig, $location) {
                 this.routes = appConfig.routes;
 
+                this.isRoot = function(route) {
+                    return route.root;
+                };
+
                 this.isCurrentRoute = function(route) {
                     return route.url === $location.path();
                 };

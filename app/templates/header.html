@@ -13,7 +13,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li ng-repeat="route in header.routes" ng-class="{ active: header.isCurrentRoute(route) }"><a href="#{{ route.url }}">{{ route.title }}</a></li>
+                        <li ng-repeat="route in header.routes | filter:header.isRoot" ng-class="{ active: header.isCurrentRoute(route) }"><a href="#{{ route.url }}">{{ route.title }}</a></li>
                     </ul>
                 </div>
             </div>

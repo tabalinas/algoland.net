@@ -21,14 +21,16 @@ angular.module("algoland", [
 angular.module("algoland")
     .constant("appConfig", {
         algosUrl: "algos/catalog.json",
+        algosDir: "algos",
 
         github: "tabalinas",
         twitter: "artem_tabalin",
 
         routes: [
-            { url: "/", view: "views/main.html", controller: "MainCtrl", title: "Home" },
-            { url: "/algo", view: "views/algo.html", controller: "AlgoCtrl", title: "Algorithms" },
-            { url: "/about", view: "views/about.html", controller: "AboutCtrl", title: "About" }
+            { url: "/", view: "views/main.html", controller: "MainCtrl", title: "Home", root: true },
+            { url: "/algo", view: "views/algo.html", controller: "AlgoCtrl", title: "Algorithms", root: true },
+            { url: "/algo/:algo", view: "views/algo-info.html", controller: "AlgoInfoCtrl" },
+            { url: "/about", view: "views/about.html", controller: "AboutCtrl", title: "About", root: true }
         ]
     });
 
