@@ -46,7 +46,7 @@ h1, h2, h3 {
 .site-header {
     background: $header-bg;
     min-height: 40px;
-    padding: 10px;
+    padding: 10px 0;
 
     .navbar-collapse.collapsing,
     .navbar-collapse.in {
@@ -57,9 +57,13 @@ h1, h2, h3 {
         background: $nav-link-hover-bg;
     }
 
-    .nav a {
-        color: $header-link-color;
-        padding: 5px 25px;
+    .navbar-nav.nav {
+        margin-right: 0;
+
+        a {
+            color: $header-link-color;
+            padding: 5px 25px;
+        }
     }
 
     .navbar-toggle {
@@ -70,6 +74,10 @@ h1, h2, h3 {
             background: #428bca;
         }
     }
+}
+
+.site-header > .container .site-brand {
+    margin-left: 0;
 }
 
 .site-brand {
