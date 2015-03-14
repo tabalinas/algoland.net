@@ -8,6 +8,6 @@
  * Controller of the algoland
  */
 angular.module("algoland")
-    .controller("AboutCtrl", function () {
+    .controller("AboutCtrl", function() {
 
     });

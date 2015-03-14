@@ -1,0 +1,8 @@
+[{
+    "name": "sorting",
+    "algos": [{
+        "name": "bubble-sort"
+    }, {
+        "name": "insertion-sort"
+    }]
+}]
