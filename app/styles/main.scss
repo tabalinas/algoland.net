@@ -11,11 +11,16 @@ $fa-font-path: "../fonts";
 $header-bg: #2e373c;
 $header-link-color: #fff;
 $header-height: 53px;
+
+$brand-color: #fff;
+$brand-strong-color: lighten($brand-primary, 20%);
+
 $footer-bg: #2a3744;
 $footer-color: #8e8e8e;
-$footer-brand-color: #fff;
 $footer-height: 140px;
+
 $site-margin-bottom: -$footer-height;
+
 $page-header-bg: #f5f7f8;
 
 .browsehappy {
@@ -84,16 +89,21 @@ h1, h2, h3 {
 .site-brand {
     height: auto;
     padding: 5px 0;
-    color: $header-link-color;
+    color: $brand-color;
 
     &:focus, &:hover {
-        color: $header-link-color;
+        color: $brand-color;
     }
 
     h1 {
         margin: 0;
         line-height: 1;
+        font-weight: bold;
         font-size: 20px;
+    }
+
+    strong {
+        color: $brand-strong-color;
     }
 }
 
@@ -119,7 +129,12 @@ h1, h2, h3 {
 }
 
 .footer-brand {
-    color: $footer-brand-color;
+    color: $brand-color;
+    font-weight: bold;
+
+    strong {
+        color: $brand-strong-color;
+    }
 }
 
 .page-header {
