@@ -15,13 +15,14 @@ angular.module("algoland", [
     "ngResource",
     "ngRoute",
     "ngSanitize",
-    "ngTouch"
+    "ngTouch",
+    "hc.marked"
 ]);
 
 angular.module("algoland")
     .constant("appConfig", {
         algosUrl: "algos/catalog.json",
-        algosDir: "algos",
+        algoInfoUrl: "algos/{category}/{algo}.md",
 
         github: "tabalinas",
         twitter: "artem_tabalin",
@@ -46,5 +47,14 @@ angular.module("algoland")
 
         $routeProvider.otherwise({
             redirectTo: "/"
+        });
+    })
+    .config(function(markedProvider) {
+        markedProvider.setOptions({
+            gfm: true,
+            tables: true,
+            highlight: function(code) {
+                return hljs.highlightAuto(code).value;
+            }
         });
     });

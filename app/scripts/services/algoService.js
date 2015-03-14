@@ -47,20 +47,6 @@ angular.module("algoland")
             return result.promise;
         };
 
-        var loadAlgoContent = function(category, algoName) {
-            var deferred = $q.defer();
-
-            $http.get(appConfig.algosDir + "/" + category + "/" + algoName + ".md")
-                .success(function(content) {
-                    deferred.resolve(content);
-                })
-                .error(function() {
-                    deferred.resolve("");
-                });
-
-            return deferred.promise;
-        };
-
         var findAlgoCategory = function(algoName) {
             var result = $q.defer();
 
@@ -85,17 +71,14 @@ angular.module("algoland")
             var result = $q.defer();
 
             findAlgoCategory(algoName).then(function(category) {
-                loadAlgoContent(category.name, algoName).then(function(content) {
-                    result.resolve({
-                        name: algoName,
-                        title: inflector.titleize(algoName),
-                        content: content
-                    });
+                result.resolve({
+                    name: algoName,
+                    title: inflector.titleize(algoName),
+                    url: appConfig.algoInfoUrl.replace("{category}", category.name).replace("{algo}", algoName)
                 });
             });
 
             return result.promise;
-
         };
 
         return {

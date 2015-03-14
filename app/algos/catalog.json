@@ -4,5 +4,7 @@
         "name": "bubble-sort"
     }, {
         "name": "insertion-sort"
+    }, {
+        "name": "bucket-sort"
     }]
 }]
