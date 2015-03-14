@@ -16,6 +16,7 @@ $footer-color: #8e8e8e;
 $footer-brand-color: #fff;
 $footer-height: 140px;
 $site-margin-bottom: -$footer-height;
+$page-header-bg: #f5f7f8;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -119,4 +120,21 @@ h1, h2, h3 {
 
 .footer-brand {
     color: $footer-brand-color;
+}
+
+.page-header {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    margin-top: -20px;
+    border-bottom: none;
+    background: $page-header-bg;
+}
+
+.page-header-text {
+    color: $header-bg;
+}
+
+.page-header-description {
+    color: lighten($header-bg, 30%);
+    font-size: 18px;
 }
