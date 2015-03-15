@@ -36,7 +36,7 @@ angular.module("algoland")
     });
 
 angular.module("algoland")
-    .config(function(appConfig, $routeProvider) {
+    .config(function($routeProvider, appConfig) {
         angular.forEach(appConfig.routes, function(route) {
             $routeProvider
                 .when(route.url, {
