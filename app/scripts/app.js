@@ -20,6 +20,7 @@ angular.module("algoland", [
 ]);
 
 angular.module("algoland")
+    .constant("hljs", window.hljs)
     .constant("appConfig", {
         algosUrl: "algos/catalog.json",
         algoInfoUrl: "algos/{category}/{algo}.md",
@@ -49,7 +50,7 @@ angular.module("algoland")
             redirectTo: "/"
         });
     })
-    .config(function(markedProvider) {
+    .config(function(markedProvider, hljs) {
         markedProvider.setOptions({
             gfm: true,
             tables: true,
