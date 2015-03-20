@@ -5,6 +5,9 @@ describe("algoService", function() {
     var algoService;
     var httpBackend;
 
+    var mockAlgosUrl = "algos.json";
+    var mockAlgoInfoUrl = "cat/{category}/algo/{algo}.md";
+
     var mockAlgoCatalog = [{
         name: "cat-1",
         description: "description cat-1",
@@ -27,7 +30,10 @@ describe("algoService", function() {
         algoService = _algoService_;
         httpBackend = $httpBackend;
 
-        $httpBackend.whenGET(appConfig.algosUrl).respond(mockAlgoCatalog);
+        appConfig.algosUrl = mockAlgosUrl;
+        appConfig.algoInfoUrl = mockAlgoInfoUrl;
+
+        $httpBackend.whenGET(mockAlgosUrl).respond(mockAlgoCatalog);
     }));
 
     it("should return algo catalog", function() {
@@ -49,6 +55,18 @@ describe("algoService", function() {
                     { name: "algo2-2", title: "Algo2 2", description: undefined }
                 ]
             }]);
+        });
+
+        httpBackend.flush();
+    });
+
+    it("should return algo by name", function() {
+        algoService.getAlgo("algo2-1").then(function(algo) {
+            expect(algo).toEqual({
+                name: "algo2-1",
+                title: "Algo2 1",
+                url: "cat/cat-2/algo/algo2-1.md"
+            });
         });
 
         httpBackend.flush();
