@@ -3,12 +3,12 @@
 describe("al.header", function() {
 
     var element;
-    var $compile;
+    var compile;
     var scope;
 
     var createDirective = function() {
         element = angular.element("<al-header></al-header>");
-        $compile(element)(scope);
+        compile(element)(scope);
         scope.$digest();
     };
 
@@ -16,9 +16,9 @@ describe("al.header", function() {
     beforeEach(module("algoland"));
     beforeEach(module("partials/header.html"));
 
-    beforeEach(inject(function(_$compile_, $rootScope, appConfig) {
+    beforeEach(inject(function($compile, $rootScope, appConfig) {
+        compile = $compile;
         scope = $rootScope.$new();
-        $compile = _$compile_;
 
         appConfig.routes = [
             { url: "/home", root: true, title: "Main" },

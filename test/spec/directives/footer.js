@@ -3,12 +3,12 @@
 describe("al.footer", function() {
 
     var element;
-    var $compile;
+    var compile;
     var scope;
 
     var createDirective = function() {
         element = angular.element("<al-footer></al-footer>");
-        $compile(element)(scope);
+        compile(element)(scope);
         scope.$digest();
     };
 
@@ -16,8 +16,8 @@ describe("al.footer", function() {
     beforeEach(module("algoland"));
     beforeEach(module("partials/footer.html"));
 
-    beforeEach(inject(function(_$compile_, $rootScope, appConfig) {
-        $compile = _$compile_;
+    beforeEach(inject(function($compile, $rootScope) {
+        compile = $compile;
         scope = $rootScope.$new();
     }));
 
