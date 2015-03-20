@@ -5,7 +5,7 @@ angular.module("algoland")
         return {
             restrict: "E",
             replace: true,
-            templateUrl: "/partials/footer.html",
+            templateUrl: "partials/footer.html",
             controller: function(appConfig) {
                 this.date = new Date();
                 this.github = appConfig.github;

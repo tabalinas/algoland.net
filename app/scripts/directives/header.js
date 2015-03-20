@@ -5,7 +5,7 @@ angular.module("algoland")
         return {
             restrict: "E",
             replace: true,
-            templateUrl: "/partials/header.html",
+            templateUrl: "partials/header.html",
             controller: function(appConfig, $location) {
                 this.routes = appConfig.routes;
 
