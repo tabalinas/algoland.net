@@ -16,7 +16,8 @@ angular.module("algoland", [
     "ngRoute",
     "ngSanitize",
     "ngTouch",
-    "hc.marked"
+    "hc.marked",
+    "angularUtils.directives.dirDisqus"
 ]);
 
 angular.module("algoland")
@@ -49,6 +50,9 @@ angular.module("algoland")
         $routeProvider.otherwise({
             redirectTo: "/"
         });
+    })
+    .config(function($locationProvider) {
+        $locationProvider.hashPrefix("!");
     })
     .config(function(markedProvider, hljs) {
         markedProvider.setOptions({

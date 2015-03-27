@@ -4,6 +4,9 @@
             <h1>{{ algo.title }}</h1>
             <div marked ng-include="algo.url">
             </div>
+            <div class="comments">
+                <dir-disqus disqus-shortname="algolandnet" disqus-identifier="{{ algo.url }}" disqus-url="{{ url }}"></dir-disqus>
+            </div>
         </div>
     </div>
 </div>
