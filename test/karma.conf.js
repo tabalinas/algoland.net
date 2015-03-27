@@ -36,6 +36,7 @@ module.exports = function (config) {
             "bower_components/angular-sanitize/angular-sanitize.js",
             "bower_components/angular-touch/angular-touch.js",
             "bower_components/angular-marked/angular-marked.js",
+            "bower_components/angular-utils-disqus/dirDisqus.js",
             "app/scripts/**/*.js",
             "app/partials/*.html",
             "test/mock/**/*.js",

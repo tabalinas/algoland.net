@@ -72,4 +72,40 @@ describe("algoService", function() {
         httpBackend.flush();
     });
 
+    it("should find algos by algo title part", function() {
+        algoService.findAlgos("go1").then(function(algos) {
+            expect(algos).toEqual([{
+                category: "Cat 1",
+                name: "algo1-1",
+                title: "Algo1 1",
+                description: "description algo1-1"
+            }, {
+                category: "Cat 1",
+                name: "algo1-2",
+                title: "Algo1 2",
+                description: "description algo1-2"
+            }]);
+        });
+
+        httpBackend.flush();
+    });
+
+    it("should find algos by algo description part", function() {
+        algoService.findAlgos("-1").then(function(algos) {
+            expect(algos).toEqual([{
+                category: "Cat 1",
+                name: "algo1-1",
+                title: "Algo1 1",
+                description: "description algo1-1"
+            }, {
+                category: "Cat 2",
+                name: "algo2-1",
+                title: "Algo2 1",
+                description: "description algo2-1"
+            }]);
+        });
+
+        httpBackend.flush();
+    });
+
 });

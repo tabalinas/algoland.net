@@ -81,8 +81,34 @@ angular.module("algoland")
             return result.promise;
         };
 
+        var findAlgos = function(searchValue) {
+            var result = $q.defer();
+            var searchResult = [];
+
+            var searchIn = function(source) {
+                return source && source.indexOf(searchValue) >= 0;
+            };
+
+            loadCatalog().then(function(catalog) {
+                angular.forEach(catalog, function(category) {
+                    angular.forEach(category.algos, function(algo) {
+                        if(searchIn(algo.title) || searchIn(algo.description)) {
+                            searchResult.push($.extend({
+                                category: category.title
+                            }, algo));
+                        }
+                    });
+                });
+
+                result.resolve(searchResult);
+            });
+
+            return result.promise;
+        };
+
         return {
             getAlgos: getAlgos,
-            getAlgo: getAlgo
+            getAlgo: getAlgo,
+            findAlgos: findAlgos
         };
     });
