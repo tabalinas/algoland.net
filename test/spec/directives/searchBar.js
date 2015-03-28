@@ -13,8 +13,8 @@ describe("al.searchBar", function() {
     };
 
 
-    beforeEach("algoland");
-    beforeEach("partials/search-bar.html");
+    beforeEach(module("algoland"));
+    beforeEach(module("partials/search-bar.html"));
 
     beforeEach(inject(function($compile, $rootScope) {
         compile = $compile;
