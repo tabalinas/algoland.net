@@ -1,8 +1,22 @@
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="page-header-text">Search Results</h1>
+                <p class="page-header-description">Searching for <strong>{{ searchQuery }}</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
             <div class="algo-search-result">
-                <ul class="algo-search-list">
+                <div ng-if="!algos.length">
+                    No algorithm found for your request.
+                </div>
+                <ul ng-if="algos.length" class="algo-search-list">
                     <li class="algo-search-item" ng-repeat="algo in algos">
                         <a href="#!/algo/{{ algo.name }}">{{ algo.title }} ({{ algo.category }})</a>
                         <p class="algo-search-item-description">{{ algo.description }}</p>

@@ -11,6 +11,8 @@ angular.module("algoland")
     .controller("SearchCtrl", function(algoService, $routeParams, $scope) {
         var searchQuery = $routeParams.query;
 
+        $scope.searchQuery = searchQuery;
+
         algoService.findAlgos(searchQuery).then(function(algos) {
             $scope.algos = algos;
         });
