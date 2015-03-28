@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="algo-search-result">
+                <ul class="algo-search-list">
+                    <li class="algo-search-item" ng-repeat="algo in algos">
+                        <a href="#!/algo/{{ algo.name }}">{{ algo.title }} ({{ algo.category }})</a>
+                        <p class="algo-search-item-description">{{ algo.description }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

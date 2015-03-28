@@ -81,12 +81,12 @@ angular.module("algoland")
             return result.promise;
         };
 
-        var findAlgos = function(searchValue) {
+        var findAlgos = function(searchQuery) {
             var result = $q.defer();
             var searchResult = [];
 
             var searchIn = function(source) {
-                return source && source.indexOf(searchValue) >= 0;
+                return source && source.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0;
             };
 
             loadCatalog().then(function(catalog) {

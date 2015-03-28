@@ -73,7 +73,7 @@ describe("algoService", function() {
     });
 
     it("should find algos by algo title part", function() {
-        algoService.findAlgos("go1").then(function(algos) {
+        algoService.findAlgos("Go1").then(function(algos) {
             expect(algos).toEqual([{
                 category: "Cat 1",
                 name: "algo1-1",

@@ -12,6 +12,7 @@
                     <a class="site-brand navbar-brand" href="/"><h1>Algoland<strong>.NET</strong></h1></a>
                 </div>
                 <div class="navbar-collapse collapse">
+                    <al-search-bar></al-search-bar>
                     <ul class="nav navbar-nav navbar-right">
                         <li ng-repeat="route in header.routes | filter:header.isRoot" ng-class="{ active: header.isCurrentRoute(route) }"><a href="#!{{ route.url }}">{{ route.title }}</a></li>
                     </ul>

@@ -33,7 +33,8 @@ angular.module("algoland")
             { url: "/", view: "views/main.html", controller: "MainCtrl", title: "Home", root: true },
             { url: "/algo", view: "views/algo.html", controller: "AlgoCtrl", title: "Algorithms", root: true },
             { url: "/algo/:algo", view: "views/algo-info.html", controller: "AlgoInfoCtrl" },
-            { url: "/about", view: "views/about.html", controller: "AboutCtrl", title: "About", root: true }
+            { url: "/about", view: "views/about.html", controller: "AboutCtrl", title: "About", root: true },
+            { url: "/search/:query", view: "views/search.html", controller: "SearchCtrl" }
         ]
     });
 
@@ -52,7 +53,9 @@ angular.module("algoland")
         });
     })
     .config(function($locationProvider) {
-        $locationProvider.hashPrefix("!");
+        $locationProvider
+            .html5Mode(false)
+            .hashPrefix("!");
     })
     .config(function(markedProvider, hljs) {
         markedProvider.setOptions({

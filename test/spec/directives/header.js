@@ -15,6 +15,7 @@ describe("al.header", function() {
 
     beforeEach(module("algoland"));
     beforeEach(module("partials/header.html"));
+    beforeEach(module("partials/search-bar.html"));
 
     beforeEach(inject(function($compile, $rootScope, appConfig) {
         compile = $compile;
