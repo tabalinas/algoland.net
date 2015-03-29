@@ -93,7 +93,7 @@ angular.module("algoland")
                 angular.forEach(catalog, function(category) {
                     angular.forEach(category.algos, function(algo) {
                         if(searchIn(algo.title) || searchIn(algo.description)) {
-                            searchResult.push($.extend({
+                            searchResult.push(angular.extend({
                                 category: category.title
                             }, algo));
                         }
