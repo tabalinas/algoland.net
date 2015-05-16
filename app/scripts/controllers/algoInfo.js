@@ -15,5 +15,6 @@ angular.module("algoland")
 
         algoService.getAlgo(algoName).then(function(algo) {
             $scope.algo = algo;
+            $scope.$root.title = algo.title;
         });
     });

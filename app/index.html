@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="algoland">
 <head>
     <meta charset="utf-8">
-    <title>Algoland.net</title>
+    <title ng-bind="'Algoland.net - ' + title"></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Popular algorithms written in C#">
     <meta name="keywords" content="algorithm, C#, algoland">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="algoland">
+<body>
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
