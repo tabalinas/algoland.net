@@ -53,9 +53,7 @@ app.config(function($routeProvider, appConfig) {
         });
     })
     .config(function($locationProvider) {
-        $locationProvider
-            .html5Mode(false)
-            .hashPrefix("!");
+        $locationProvider.html5Mode(true);
     })
     .config(function(markedProvider, hljs) {
         markedProvider.setOptions({
