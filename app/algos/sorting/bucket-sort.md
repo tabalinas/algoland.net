@@ -1,4 +1,5 @@
-##Subheader
+Subheader
+---------
 
 **Bucket sort**, or bin sort, is a sorting algorithm that works by partitioning an array into a number of buckets.
 
