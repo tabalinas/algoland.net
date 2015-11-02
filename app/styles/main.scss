@@ -95,22 +95,22 @@ pre code {
 
 .search-bar {
     margin-left: 25px;
-}
 
-.search-bar-input {
-    height: 32px;
-    margin-right: -15px;
-    padding-left: (32px - $font-size-base + 2) / 2;
-    padding-right: 30px;
-    border: none;
-    font-size: $font-size-base - 2;
-}
+    &-input {
+        height: 32px;
+        margin-right: -15px;
+        padding-left: (32px - $font-size-base + 2) / 2;
+        padding-right: 30px;
+        border: none;
+        font-size: $font-size-base - 2;
+    }
 
-.search-bar-icon {
-    position: relative;
-    left: -15px;
-    opacity: .3;
-    pointer-events: none;
+    &-icon {
+        position: relative;
+        left: -15px;
+        opacity: .3;
+        pointer-events: none;
+    }
 }
 
 .site-header > .container .site-brand {
@@ -174,13 +174,15 @@ pre code {
     margin-top: -20px;
     border-bottom: none;
     background: $page-header-bg;
+
+    &-text {
+        color: $header-bg;
+    }
+
+    &-description {
+        color: lighten($header-bg, 30%);
+        font-size: $font-size-base + 2;
+    }
 }
 
-.page-header-text {
-    color: $header-bg;
-}
-
-.page-header-description {
-    color: lighten($header-bg, 30%);
-    font-size: $font-size-base + 2;
 }
