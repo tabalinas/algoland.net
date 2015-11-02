@@ -18,7 +18,7 @@
                 </div>
                 <ul ng-if="algos.length" class="algo-search-list">
                     <li class="algo-search-item" ng-repeat="algo in algos">
-                        <a href="/algo/{{ algo.name }}">{{ algo.title }} ({{ algo.category }})</a>
+                        <a href="/algo/{{ algo.name }}">{{ algo.title }} ({{ algo.category.title }})</a>
                         <p class="algo-search-item-description">{{ algo.description }}</p>
                     </li>
                 </ul>
