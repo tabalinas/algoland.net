@@ -37,22 +37,22 @@ describe("algoService", function() {
     }));
 
     it("should return algo catalog", function() {
-        algoService.getAlgos().then(function(catalog) {
+        algoService.getAlgosTree().then(function(catalog) {
             expect(catalog).toEqual([{
                 name: "cat-1",
                 title: "Cat 1",
                 description: "description cat-1",
                 algos: [
-                    { name: "algo1-1", title: "Algo1 1", description: "description algo1-1" },
-                    { name: "algo1-2", title: "Algo1 2", description: "description algo1-2" }
+                    jasmine.objectContaining({ name: "algo1-1", title: "Algo1 1", description: "description algo1-1" }),
+                    jasmine.objectContaining({ name: "algo1-2", title: "Algo1 2", description: "description algo1-2" })
                 ]
             }, {
                 name: "cat-2",
                 title: "Cat 2",
                 description: undefined,
                 algos: [
-                    { name: "algo2-1", title: "Algo2 1", description: "description algo2-1" },
-                    { name: "algo2-2", title: "Algo2 2", description: undefined }
+                    jasmine.objectContaining({ name: "algo2-1", title: "Algo2 1", description: "description algo2-1" }),
+                    jasmine.objectContaining({ name: "algo2-2", title: "Algo2 2", description: undefined })
                 ]
             }]);
         });
@@ -62,11 +62,11 @@ describe("algoService", function() {
 
     it("should return algo by name", function() {
         algoService.getAlgo("algo2-1").then(function(algo) {
-            expect(algo).toEqual({
+            expect(algo).toEqual(jasmine.objectContaining({
                 name: "algo2-1",
                 title: "Algo2 1",
                 url: "cat/cat-2/algo/algo2-1.md"
-            });
+            }));
         });
 
         httpBackend.flush();
@@ -74,17 +74,17 @@ describe("algoService", function() {
 
     it("should find algos by algo title part", function() {
         algoService.findAlgos("Go1").then(function(algos) {
-            expect(algos).toEqual([{
-                category: "Cat 1",
+            expect(algos.length).toEqual(2);
+            expect(algos[0]).toEqual(jasmine.objectContaining({
                 name: "algo1-1",
                 title: "Algo1 1",
                 description: "description algo1-1"
-            }, {
-                category: "Cat 1",
+            }));
+            expect(algos[1]).toEqual(jasmine.objectContaining({
                 name: "algo1-2",
                 title: "Algo1 2",
                 description: "description algo1-2"
-            }]);
+            }));
         });
 
         httpBackend.flush();
@@ -92,17 +92,17 @@ describe("algoService", function() {
 
     it("should find algos by algo description part", function() {
         algoService.findAlgos("-1").then(function(algos) {
-            expect(algos).toEqual([{
-                category: "Cat 1",
+            expect(algos.length).toEqual(2);
+            expect(algos[0]).toEqual(jasmine.objectContaining({
                 name: "algo1-1",
                 title: "Algo1 1",
                 description: "description algo1-1"
-            }, {
-                category: "Cat 2",
+            }));
+            expect(algos[1]).toEqual(jasmine.objectContaining({
                 name: "algo2-1",
                 title: "Algo2 1",
                 description: "description algo2-1"
-            }]);
+            }));
         });
 
         httpBackend.flush();

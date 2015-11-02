@@ -3,14 +3,15 @@
 angular.module("algoland")
     .factory("algoService", function(appConfig, inflector, $http, $q) {
 
-        var loadCatalog = function() {
+        var loadCatalog = function(options) {
+            options = options || {};
             var deferred = $q.defer();
             var result = [];
 
             $http.get(appConfig.algosUrl)
-                .success(function(data) {
-                    angular.forEach(data, function(category) {
-                        result.push(mapCategory(category));
+                .success(function(catalogJSON) {
+                    angular.forEach(catalogJSON, function(categoryJSON) {
+                        result.push.apply(result, mapCategory(categoryJSON, options.asTree));
                     });
                     deferred.resolve(result);
                 })
@@ -21,47 +22,32 @@ angular.module("algoland")
             return deferred.promise;
         };
 
-        var mapCategory = function(category) {
-            return {
-                name: category.name,
-                title: inflector.titleize(category.name),
-                description: category.description,
-
-                algos: category.algos.map(function(algo) {
-                    return {
-                        name: algo.name,
-                        title: inflector.titleize(algo.name),
-                        description: algo.description
-                    };
-                })
+        var mapCategory = function(categoryJSON, asTree) {
+            var category = {
+                name: categoryJSON.name,
+                title: categoryJSON.title || inflector.titleize(categoryJSON.name),
+                description: categoryJSON.description
             };
-        };
 
-        var getAlgos = function() {
-            var result = $q.defer();
-
-            loadCatalog().then(function(algos) {
-                result.resolve(algos);
+            category.algos = categoryJSON.algos.map(function(algoJSON) {
+                return {
+                    name: algoJSON.name,
+                    title: algoJSON.title || inflector.titleize(algoJSON.name),
+                    description: algoJSON.description,
+                    url: appConfig.algoInfoUrl.replace("{category}", category.name).replace("{algo}", algoJSON.name),
+                    published: algoJSON.published ? new Date(algoJSON.published) : new Date(),
+                    category: category
+                };
             });
 
-            return result.promise;
+            return asTree ? [category] : category.algos;
         };
 
-        var findAlgoCategory = function(algoName) {
+        var getAlgosTree = function() {
             var result = $q.defer();
 
-            loadCatalog().then(function(algos) {
-                for(var catIndex = 0; catIndex < algos.length; catIndex++) {
-                    var cat = algos[catIndex];
-
-                    for(var algoIndex = 0; algoIndex < cat.algos.length; algoIndex++) {
-                        var algo = cat.algos[algoIndex];
-                        if(algo.name === algoName) {
-                            result.resolve(cat);
-                            return;
-                        }
-                    }
-                }
+            loadCatalog({ asTree: true }).then(function(algos) {
+                result.resolve(algos);
             });
 
             return result.promise;
@@ -70,11 +56,10 @@ angular.module("algoland")
         var getAlgo = function(algoName) {
             var result = $q.defer();
 
-            findAlgoCategory(algoName).then(function(category) {
-                result.resolve({
-                    name: algoName,
-                    title: inflector.titleize(algoName),
-                    url: appConfig.algoInfoUrl.replace("{category}", category.name).replace("{algo}", algoName)
+            loadCatalog().then(function(algos) {
+                angular.forEach(algos, function(algo) {
+                    if(algo.name === algoName)
+                        result.resolve(algo);
                 });
             });
 
@@ -83,21 +68,20 @@ angular.module("algoland")
 
         var findAlgos = function(searchQuery) {
             var result = $q.defer();
-            var searchResult = [];
 
             var searchIn = function(source) {
                 return source && source.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0;
             };
 
-            loadCatalog().then(function(catalog) {
-                angular.forEach(catalog, function(category) {
-                    angular.forEach(category.algos, function(algo) {
-                        if(searchIn(algo.title) || searchIn(algo.description)) {
-                            searchResult.push(angular.extend({
-                                category: category.title
-                            }, algo));
-                        }
-                    });
+            loadCatalog().then(function(algos) {
+                var searchResult = [];
+
+                angular.forEach(algos, function(algo) {
+                    if(searchIn(algo.title) || searchIn(algo.description)) {
+                        searchResult.push(angular.extend({
+                            category: algo.category.title
+                        }, algo));
+                    }
                 });
 
                 result.resolve(searchResult);
@@ -107,7 +91,7 @@ angular.module("algoland")
         };
 
         return {
-            getAlgos: getAlgos,
+            getAlgosTree: getAlgosTree,
             getAlgo: getAlgo,
             findAlgos: findAlgos
         };
