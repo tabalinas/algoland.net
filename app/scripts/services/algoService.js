@@ -78,9 +78,7 @@ angular.module("algoland")
 
                 angular.forEach(algos, function(algo) {
                     if(searchIn(algo.title) || searchIn(algo.description)) {
-                        searchResult.push(angular.extend({
-                            category: algo.category.title
-                        }, algo));
+                        searchResult.push(algo);
                     }
                 });
 
@@ -90,8 +88,23 @@ angular.module("algoland")
             return result.promise;
         };
 
+        var getLatestAlgos = function(amount) {
+            var result = $q.defer();
+
+            loadCatalog().then(function(algos) {
+                algos.sort(function(alg1, alg2) {
+                    return alg2.published - alg1.published;
+                });
+
+                result.resolve(algos.slice(0, amount - 1));
+            });
+
+            return result.promise;
+        };
+
         return {
             getAlgosTree: getAlgosTree,
+            getLatestAlgos: getLatestAlgos,
             getAlgo: getAlgo,
             findAlgos: findAlgos
         };

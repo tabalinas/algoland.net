@@ -23,6 +23,7 @@ $brand-strong-color: lighten($brand-primary, 20%);
 $footer-bg: #2a3744;
 $footer-color: #8e8e8e;
 $footer-height: 140px;
+$grayed: #888;
 
 $site-margin-bottom: -$footer-height;
 
@@ -185,4 +186,28 @@ pre code {
     }
 }
 
+.algo-latest {
+    .algo {
+        margin-bottom: 30px;
+
+        &-title {
+            margin: 0 0 7px 0;
+            font-size: $font-size-base + 6;
+        }
+
+        &-category {
+            color: $grayed;
+            font-size: $font-size-base - 2;
+        }
+
+        &-published {
+            float: right;
+            color: $grayed;
+            font-size: $font-size-base - 2;
+        }
+
+        &-description {
+            margin-top: 5px;
+        }
+    }
 }

@@ -13,10 +13,13 @@
 <div class="page-content">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <p>Whether you are preparing for a coding interview or making a homework on computer science or just learning algorithms, the <strong>Algoland</strong> is here to help. You will find many algorithms explained and implemented in C#.</p>
-                <p>Whether you are preparing for a coding interview or making a homework on computer science or just learning algorithms, the <strong>Algoland</strong> is here to help. You will find many algorithms explained and implemented in C#.</p>
-                <p>Whether you are preparing for a coding interview or making a homework on computer science or just learning algorithms, the <strong>Algoland</strong> is here to help. You will find many algorithms explained and implemented in C#.</p>
+            <div class="col-md-8 algo-latest">
+                <div class="algo" ng-repeat="algo in latestAlgos">
+                    <h2 class="algo-title"><a href="/algo/{{ algo.name }}">{{ algo.title }}</a></h2>
+                    <div class="algo-published">Published: {{ algo.published | date:'MM/dd/yyyy HH:mm' }}</div>
+                    <div class="algo-category">Category: <a href="/algo#{{ algo.category.name }}">{{ algo.category.title }}</a></div>
+                    <div class="algo-description">{{ algo.description }}</div>
+                </div>
             </div>
         </div>
     </div>
