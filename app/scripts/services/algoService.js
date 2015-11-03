@@ -36,6 +36,7 @@ angular.module("algoland")
                     description: algoJSON.description,
                     url: appConfig.algoInfoUrl.replace("{category}", category.name).replace("{algo}", algoJSON.name),
                     published: algoJSON.published ? new Date(algoJSON.published) : new Date(),
+                    author: algoJSON.author,
                     category: category
                 };
             });

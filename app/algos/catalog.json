@@ -3,14 +3,17 @@
     "algos": [{
         "name": "bubble-sort",
         "description": "Bubble sort algorithm description",
-        "published": "2015-11-01T10:15:00.000Z"
+        "published": "2015-11-01T10:15:00.000Z",
+        "author": "tabalinas"
     }, {
         "name": "insertion-sort",
         "description": "Insertion sort algorithm description",
-        "published": "2015-11-01T11:15:00.000Z"
+        "published": "2015-11-01T11:15:00.000Z",
+        "author": "tabalinas"
     }, {
         "name": "bucket-sort",
         "description": "Bucket sort algorithm description",
-        "published": "2015-11-01T12:25:00.000Z"
+        "published": "2015-11-01T12:25:00.000Z",
+        "author": "tabalinas"
     }]
 }]

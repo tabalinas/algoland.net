@@ -202,13 +202,22 @@ pre code {
         }
 
         &-published {
-            float: right;
             color: $grayed;
             font-size: $font-size-base - 2;
+
+            &-date {
+                font-weight: 400;
+            }
+        }
+
+        &-author {
+            &-icon {
+                margin-right: 2px;
+            }
         }
 
         &-description {
-            margin-top: 5px;
+            margin: 5px 0;
         }
     }
 }
