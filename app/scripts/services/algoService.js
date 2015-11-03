@@ -58,8 +58,9 @@ angular.module("algoland")
 
             loadCatalog().then(function(algos) {
                 angular.forEach(algos, function(algo) {
-                    if(algo.name === algoName)
+                    if(algo.name === algoName) {
                         result.resolve(algo);
+                    }
                 });
             });
 
