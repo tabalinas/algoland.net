@@ -14,21 +14,18 @@ $fa-font-path: "../fonts";
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+$grayed: #888;
 $header-bg: #2e373c;
 $header-link-color: #fff;
-$header-height: 53px;
-
 $brand-color: #fff;
 $brand-strong-color: lighten($brand-primary, 20%);
+$page-header-bg: #f5f7f8;
 
 $footer-bg: #2a3744;
 $footer-color: #8e8e8e;
 $footer-height: 140px;
-$grayed: #888;
-
+$content-padding: 60px;
 $site-margin-bottom: -$footer-height;
-
-$page-header-bg: #f5f7f8;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -58,36 +55,93 @@ pre code {
     height: auto !important;
     height: 100%;
     margin: 0 auto $site-margin-bottom;
+
+    &-header {
+        min-height: 40px;
+        padding: 10px 0;
+        border: none;
+        background: $header-bg;
+
+        &.navbar {
+            margin-bottom: 0;
+        }
+
+        & > .container .site-brand {
+            margin-left: 0;
+        }
+    }
+
+    &-brand {
+        height: auto;
+        padding: 5px 0;
+        color: $brand-color;
+
+        &:focus, &:hover {
+            color: $brand-color;
+        }
+
+        h1 {
+            margin: 0;
+            line-height: 1;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        strong {
+            color: $brand-strong-color;
+        }
+    }
+
+    &-content {
+        padding: $content-padding 0;
+
+        h1:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &-footer {
+        height: $footer-height;
+        padding-top: 30px;
+        padding-bottom: 100px;
+        background: $footer-bg;
+        color: $footer-color;
+        font-size: $font-size-base - 2;
+    }
 }
 
-.site-header {
-    background: $header-bg;
-    min-height: 40px;
-    padding: 10px 0;
-    border: none;
+.navbar {
 
-    .navbar-collapse.collapsing,
-    .navbar-collapse.in {
+    &-collapse.collapsing,
+    &-collapse.in {
         margin-top: 10px;
     }
+
+    .navbar-nav.navbar-right:last-child
 
     .active a {
         background: $nav-link-hover-bg;
     }
 
-    .navbar-nav.nav {
+    &-nav.nav {
         margin-right: 0;
 
         a {
-            color: $header-link-color;
             padding: 15px 25px;
             margin: -10px 0;
+            color: $header-link-color;
         }
     }
 
-    .navbar-toggle {
-        margin: 0;
+    &-nav.navbar-right {
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &-toggle {
         padding: 5px;
+        margin: 0;
 
         .icon-bar {
             background: #428bca;
@@ -100,9 +154,9 @@ pre code {
 
     &-input {
         height: 32px;
-        margin-right: -15px;
         padding-left: (32px - $font-size-base + 2) / 2;
         padding-right: 30px;
+        margin-right: -15px;
         border: none;
         font-size: $font-size-base - 2;
     }
@@ -115,46 +169,8 @@ pre code {
     }
 }
 
-.site-header > .container .site-brand {
-    margin-left: 0;
-}
-
-.site-brand {
-    height: auto;
-    padding: 5px 0;
-    color: $brand-color;
-
-    &:focus, &:hover {
-        color: $brand-color;
-    }
-
-    h1 {
-        margin: 0;
-        line-height: 1;
-        font-weight: bold;
-        font-size: 20px;
-    }
-
-    strong {
-        color: $brand-strong-color;
-    }
-}
-
-.site-content {
-    padding: 20px 0;
-}
-
 .view-content {
-    margin-top: $header-height;
-}
 
-.site-footer {
-    height: $footer-height;
-    padding-top: 30px;
-    padding-bottom: 100px;
-    background: $footer-bg;
-    color: $footer-color;
-    font-size: $font-size-base - 2;
 }
 
 .footer-push {
@@ -170,20 +186,31 @@ pre code {
     }
 }
 
-.page-header {
-    padding-top: 30px;
-    padding-bottom: 60px;
-    margin-top: -20px;
-    border-bottom: none;
-    background: $page-header-bg;
+.page {
+    &-header {
+        padding: $content-padding 0;
+        border-bottom: none;
+        margin: -$content-padding 0 0;
+        background: $page-header-bg;
 
-    &-text {
-        color: $header-bg;
+        &-text {
+            color: $header-bg;
+        }
+
+        &-description {
+            margin-bottom: 0;
+            color: lighten($header-bg, 30%);
+            font-size: $font-size-base + 2;
+        }
     }
 
-    &-description {
-        color: lighten($header-bg, 30%);
-        font-size: $font-size-base + 2;
+    &-content {
+        padding: $content-padding 0;
+        margin-bottom: -$content-padding;
+
+        h2:first-child {
+            margin-top: 0;
+        }
     }
 }
 
