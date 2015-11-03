@@ -1,0 +1,6 @@
+<div class="algo">
+    <h2 class="algo-title"><a href="/algo/{{ algo.name }}">{{ algo.title }}</a></h2>
+    <div class="algo-published">Published: {{ algo.published | date:'MM/dd/yyyy HH:mm' }}</div>
+    <div class="algo-category">Category: <a href="/algo#{{ algo.category.name }}">{{ algo.category.title }}</a></div>
+    <div class="algo-description">{{ algo.description }}</div>
+</div>
