@@ -45,8 +45,8 @@ module.exports = function (grunt) {
                 tasks: ["newer:jshint:test", "karma"]
             },
             sass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['sass:server', 'autoprefixer']
+                files: ["<%= yeoman.app %>/styles/{,*/}*.{scss,sass}"],
+                tasks: ["sass:server", "autoprefixer"]
             },
             gruntfile: {
                 files: ["Gruntfile.js"]
@@ -179,25 +179,25 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 includePaths: [
-                    'bower_components'
+                    "bower_components"
                 ]
             },
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/styles',
-                    src: ['*.scss'],
-                    dest: '.tmp/styles',
-                    ext: '.css'
+                    cwd: "<%= yeoman.app %>/styles",
+                    src: ["*.scss"],
+                    dest: ".tmp/styles",
+                    ext: ".css"
                 }]
             },
             server: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/styles',
-                    src: ['*.scss'],
-                    dest: '.tmp/styles',
-                    ext: '.css'
+                    cwd: "<%= yeoman.app %>/styles",
+                    src: ["*.scss"],
+                    dest: ".tmp/styles",
+                    ext: ".css"
                 }]
             }
         },
@@ -376,17 +376,17 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up the build process
         concurrent: {
             server: [
-                'sass:server',
-                'copy:styles'
+                "sass:server",
+                "copy:styles"
             ],
             test: [
-                'copy:styles'
+                "copy:styles"
             ],
             dist: [
-                'sass',
-                'copy:styles',
-                'imagemin',
-                'svgmin'
+                "sass",
+                "copy:styles",
+                "imagemin",
+                "svgmin"
             ]
         },
 
