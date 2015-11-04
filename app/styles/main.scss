@@ -247,3 +247,38 @@ pre code {
         }
     }
 }
+
+.article {
+    &-title {
+
+    }
+
+    &-meta {
+
+    }
+
+    &-author {
+        margin-bottom: 5px;
+
+        &-avatar {
+            width: 40px;
+            margin-right: 10px;
+            opacity: .7;
+            transition: opacity 200ms;
+        }
+
+        &:hover {
+            .article-author-avatar {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-publish-date {
+        color: $grayed;
+    }
+
+    &-sharing {
+        float: right;
+    }
+}
