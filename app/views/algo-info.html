@@ -2,16 +2,13 @@
     <div class="row">
         <div class="col-md-10" class="article">
             <h1 class="article-title">{{ algo.title }}</h1>
-            <social-share class="article-sharing"></social-share>
             <div class="article-meta">
-                <div class="article-author">
-                    <a href="https://github.com/{{ algo.author }}" target="_blank">
-                        <img class="article-author-avatar" src="https://avatars.githubusercontent.com/{{ algo.author }}" alt="{{ algo.author }}"
-                            /><span class="article-author-name">{{ algo.author }}</span>
-                    </a>
-                </div>
-                <div class="article-publish-date">Published on {{ algo.published | date:'MMMM dd, yyyy' }}</div>
+                Published <span class="article-published-date">{{ algo.published | date:'MMMM dd, yyyy' }}</span> by
+                <a class="article-author-link" href="https://github.com/{{ algo.author }}" target="_blank">
+                    <i class="article-author-icon fa fa-github"></i><span class="article-author-name">{{ algo.author }}</span>
+                </a>
             </div>
+            <social-share class="article-sharing"></social-share>
             <div marked class="article-content" ng-include="algo.url">
             </div>
             <div class="comments article-comments">
