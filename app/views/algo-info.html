@@ -1,18 +1,29 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-10" class="article">
-            <h1 class="article-title">{{ algo.title }}</h1>
-            <div class="article-meta">
-                Published <span class="article-published-date">{{ algo.published | date:'MMMM dd, yyyy' }}</span> by
-                <a class="article-author-link" href="https://github.com/{{ algo.author }}" target="_blank">
-                    <i class="article-author-icon fa fa-github"></i><span class="article-author-name">{{ algo.author }}</span>
-                </a>
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 article">
+                <h1 class="page-header-text">{{ algo.title }}</h1>
+                <p class="page-header-description">
+                    Published <span class="article-published-date">{{ algo.published | date:'MMMM dd, yyyy' }}</span> by
+                    <a class="article-author" href="https://github.com/{{ algo.author }}" target="_blank">
+                        <i class="article-author-icon fa fa-github"></i><span class="article-author-name">{{ algo.author }}</span>
+                    </a>
+                </p>
+                <social-share class="article-shares"></social-share>
             </div>
-            <social-share class="article-sharing"></social-share>
-            <div marked class="article-content" ng-include="algo.url">
-            </div>
-            <div class="comments article-comments">
-                <dir-disqus disqus-shortname="algolandnet" disqus-identifier="{{ algo.url }}" disqus-url="{{ url }}"></dir-disqus>
+        </div>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div marked ng-include="algo.url">
+                </div>
+                <div class="comments">
+                    <dir-disqus disqus-shortname="algolandnet" disqus-identifier="{{ algo.url }}" disqus-url="{{ url }}"></dir-disqus>
+                </div>
             </div>
         </div>
     </div>
