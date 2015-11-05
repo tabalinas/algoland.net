@@ -22,6 +22,7 @@ var app = angular.module("algoland", [
 
 app.constant("hljs", window.hljs)
     .constant("jQuery", window.jQuery)
+    .constant("moment", window.moment)
     .constant("appConfig", {
         latestAlgosAmount: 10,
         algosUrl: "algos/catalog.json",

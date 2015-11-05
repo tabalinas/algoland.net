@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("algoland")
-    .factory("algoService", function(appConfig, inflector, $http, $q) {
+    .factory("algoService", function(appConfig, moment, inflector, $http, $q) {
 
         var loadCatalog = function(options) {
             options = options || {};
@@ -35,7 +35,7 @@ angular.module("algoland")
                     title: algoJSON.title || inflector.titleize(algoJSON.name),
                     description: algoJSON.description,
                     url: appConfig.algoInfoUrl.replace("{category}", category.name).replace("{algo}", algoJSON.name),
-                    published: algoJSON.published ? new Date(algoJSON.published) : new Date(),
+                    published: moment(algoJSON.published ? new Date(algoJSON.published) : new Date()).fromNow(),
                     author: algoJSON.author,
                     category: category
                 };
