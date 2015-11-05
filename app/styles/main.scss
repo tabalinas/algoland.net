@@ -225,6 +225,7 @@ pre code {
         &-category {
             color: $grayed;
             font-size: $font-size-base - 2;
+            text-transform: uppercase;
         }
 
         &-published {
@@ -249,6 +250,10 @@ pre code {
 }
 
 .article {
+    &-category {
+        text-transform: uppercase;
+    }
+
     &-published-date {
         font-weight: 400;
     }

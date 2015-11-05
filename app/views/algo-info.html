@@ -3,6 +3,9 @@
         <div class="row">
             <div class="col-md-10 article">
                 <h1 class="page-header-text">{{ algo.title }}</h1>
+                <p class="article-category">
+                    <a href="/algo#{{ algo.category.name }}">{{ algo.category.title }}</a>
+                </p>
                 <p class="page-header-description">
                     Published <span class="article-published-date">{{ algo.published | date:'MMMM dd, yyyy' }}</span> by
                     <a class="article-author" href="https://github.com/{{ algo.author }}" target="_blank">
