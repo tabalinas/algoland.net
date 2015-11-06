@@ -226,6 +226,13 @@ pre code {
             color: $grayed;
             font-size: $font-size-base - 2;
             text-transform: uppercase;
+
+            &-icon {
+                margin-right: 5px;
+                color: lighten($grayed, 30%);
+                font-size: $font-size-base + 4;
+                vertical-align: middle;
+            }
         }
 
         &-published {
@@ -252,6 +259,13 @@ pre code {
 .article {
     &-category {
         text-transform: uppercase;
+
+        &-icon {
+            margin-right: 5px;
+            color: lighten($grayed, 30%);
+            font-size: $font-size-base + 8;
+            vertical-align: middle;
+        }
     }
 
     &-published-date {
