@@ -1,5 +1,6 @@
 [{
     "name": "sorting",
+    "description": "Arrays sorting algorithms",
     "algos": [{
         "name": "bubble-sort",
         "description": "Simple comparison sorting algorithm",
@@ -18,6 +19,7 @@
     }]
 }, {
     "name": "arrays",
+    "description": "Algorithms related to arrays",
     "algos": [{
         "name": "binary-search",
         "description": "Finds the first element within a sorted array",
