@@ -2,18 +2,31 @@
     "name": "sorting",
     "algos": [{
         "name": "bubble-sort",
-        "description": "Bubble sort algorithm description",
+        "description": "Simple comparison sorting algorithm",
         "published": "2015-11-01T10:15:00.000Z",
         "author": "tabalinas"
     }, {
         "name": "insertion-sort",
-        "description": "Insertion sort algorithm description",
+        "description": "Simple sorting algorithm, very efficient for small arrays",
         "published": "2015-11-01T11:15:00.000Z",
         "author": "tabalinas"
     }, {
         "name": "bucket-sort",
-        "description": "Bucket sort algorithm description",
+        "description": "Sorts array distributing elements into a number of buckets",
         "published": "2015-11-01T12:25:00.000Z",
+        "author": "tabalinas"
+    }]
+}, {
+    "name": "arrays",
+    "algos": [{
+        "name": "binary-search",
+        "description": "Finds the first element within a sorted array",
+        "published": "2015-11-07T02:00:00.000Z",
+        "author": "tabalinas"
+    }, {
+        "name": "quick-select",
+        "description": "Finds Kth smallest element in an unsorted array",
+        "published": "2015-11-01T03:00:00.000Z",
         "author": "tabalinas"
     }]
 }]
