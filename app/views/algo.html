@@ -13,15 +13,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <div class="algo-category" ng-repeat="category in catalog">
-                    <h4>{{ category.title }}</h4>
-                    <p class="algo-category-description">{{ category.description }}</p>
-                    <ul class="algo-list">
-                       <li class="algo-list-item" ng-repeat="algo in category.algos">
-                           <a href="/algo/{{ algo.name }}">{{ algo.title }}</a>
-                           <p class="algo-list-item-description">{{ algo.description }}</p>
-                       </li>
-                    </ul>
+                <div class="category" ng-repeat="category in catalog">
+                    <h3 class="category-title"><i class="fa fa-sitemap category-icon"></i>{{ category.title }}</h3>
+                    <p class="category-description">{{ category.description }}</p>
+                    <div class="category-algo-list">
+                        <al-algo algo="algo" show-category="false" ng-repeat="algo in category.algos">
+                        </al-algo>
+                    </div>
                 </div>
             </div>
         </div>

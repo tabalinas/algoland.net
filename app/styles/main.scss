@@ -4,9 +4,6 @@ $nav-link-hover-bg: darken($brand-primary, 10%);
 $border-radius-base: 0;
 $line-height-base: 1.6;
 
-$pre-bg: #fcfcfc;
-$pre-border-color: #e5e5e5;
-
 $icon-font-path: "../fonts/bootstrap/";
 $fa-font-path: "../fonts";
 
@@ -15,11 +12,18 @@ $fa-font-path: "../fonts";
 // endbower
 
 $grayed: #888;
+$gray-bg: #fcfcfc;
+
 $header-bg: #2e373c;
 $header-link-color: #fff;
 $brand-color: #fff;
 $brand-strong-color: lighten($brand-primary, 20%);
 $page-header-bg: #f5f7f8;
+
+$algo-category-border-color: darken($gray-bg, 5%);
+$algo-list-item-bg: darken($gray-bg, 1%);
+$pre-bg: $gray-bg;
+$pre-border-color: #e5e5e5;
 
 $footer-bg: #2a3744;
 $footer-color: #8e8e8e;
@@ -213,46 +217,87 @@ pre code {
     }
 }
 
-.algo-latest {
-    .algo {
-        margin-bottom: 30px;
+.category {
+    &-title {
+        margin-bottom: .1em;
+        margin-left: -34px;
+    }
 
-        &-title {
-            margin: 0 0 7px 0;
-            font-size: $font-size-base + 8;
-        }
+    &-icon {
+        margin-right: .2em;
+        color: lighten($grayed, 30%);
+    }
 
-        &-category {
-            color: $grayed;
-            font-size: $font-size-base - 2;
-            text-transform: uppercase;
+    &-description {
+        color: $grayed;
+        padding: 0 15px .4em 15px;
+        border-bottom: 3px solid $algo-category-border-color;
+        margin: 0 -15px;
+        font-size: .9em;
+    }
 
-            &-icon {
-                margin-right: 5px;
-                color: lighten($grayed, 30%);
-                font-size: $font-size-base + 4;
-                vertical-align: middle;
+    &-algo-list {
+        font-size: .8em;
+
+        .algo {
+            padding: 15px 15px;
+            margin: 0 -15px;
+
+            &:nth-child(2n) {
+                background: $algo-list-item-bg;
             }
         }
 
-        &-published {
-            color: $grayed;
-            font-size: $font-size-base - 2;
-
-            &-date {
-                font-weight: 400;
-            }
+        .algo-description {
+            margin: 0;
         }
+    }
 
-        &-author {
-            &-icon {
-                margin-right: 2px;
-            }
+    &:first-child {
+        .category-title {
+            margin-top: 0;
         }
+    }
+}
 
-        &-description {
-            margin: 5px 0;
+.algo {
+    margin-bottom: 2em;
+
+    &-title {
+        margin: 0 0 .3em 0;
+        font-size: 1.5em;
+    }
+
+    &-category {
+        color: $grayed;
+        font-size: .9em;
+        text-transform: uppercase;
+
+        &-icon {
+            margin-right: .2em;
+            color: lighten($grayed, 30%);
+            font-size: 1.2em;
+            vertical-align: middle;
         }
+    }
+
+    &-published {
+        color: $grayed;
+        font-size: .9em;
+
+        &-date {
+            font-weight: 400;
+        }
+    }
+
+    &-author {
+        &-icon {
+            margin-right: .1em;
+        }
+    }
+
+    &-description {
+        margin: .3em 0;
     }
 }
 
@@ -261,9 +306,9 @@ pre code {
         text-transform: uppercase;
 
         &-icon {
-            margin-right: 5px;
+            margin-right: .3em;
             color: lighten($grayed, 30%);
-            font-size: $font-size-base + 8;
+            font-size: 1.5em;
             vertical-align: middle;
         }
     }
@@ -274,12 +319,12 @@ pre code {
 
     &-author {
         &-icon {
-            margin-right: 2px;
+            margin-right: .2em;
         }
     }
 
     .jssocials-shares {
-        margin-top: 10px;
+        margin-top: .5em;
         font-size: 1.3em;
     }
 }
