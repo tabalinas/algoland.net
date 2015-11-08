@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="category" ng-repeat="category in catalog">
-                    <h3 class="category-title"><i class="fa fa-sitemap category-icon"></i>{{ category.title }}</h3>
+                    <h3 class="category-title" id="{{ category.name.toLowerCase() }}"><i class="fa fa-sitemap category-icon hidden-xs"></i>{{ category.title }}</h3>
                     <p class="category-description">{{ category.description }}</p>
                     <div class="category-algo-list">
                         <al-algo algo="algo" show-category="false" ng-repeat="algo in category.algos">

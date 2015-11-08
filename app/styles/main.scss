@@ -220,7 +220,6 @@ pre code {
 .category {
     &-title {
         margin-bottom: .1em;
-        margin-left: -34px;
     }
 
     &-icon {
@@ -257,6 +256,12 @@ pre code {
         .category-title {
             margin-top: 0;
         }
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+    .category-title {
+        margin-left: -34px;
     }
 }
 
