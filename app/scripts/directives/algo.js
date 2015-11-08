@@ -7,7 +7,7 @@ angular.module("algoland")
             replace: true,
             templateUrl: "partials/algo.html",
             scope: {
-                showCategory: '=',
+                showCategory: '=?',
                 algo: '='
             },
             link: function(scope, element, attrs){
