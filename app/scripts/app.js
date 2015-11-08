@@ -67,8 +67,13 @@ app.config(function($routeProvider, appConfig) {
         });
     });
 
-app.run(["$location", "$rootScope", function($location, $rootScope) {
+app.run(["$location", "$rootScope", "$anchorScroll", function($location, $rootScope, $anchorScroll) {
     $rootScope.$on("$routeChangeSuccess", function(event, current) {
         $rootScope.title = current.$$route.title;
+
+        if($location.hash())
+            setTimeout(function() {
+                $anchorScroll();
+            });
     });
 }]);
