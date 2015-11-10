@@ -333,3 +333,16 @@ pre code {
         font-size: 1.3em;
     }
 }
+
+.search-algo-list {
+    font-size: .8em;
+
+    .algo {
+        padding: 15px 15px;
+        margin: 0 -15px;
+
+        &:nth-child(2n) {
+            background: $algo-list-item-bg;
+        }
+    }
+}

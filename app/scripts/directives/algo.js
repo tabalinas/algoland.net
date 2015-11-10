@@ -7,11 +7,13 @@ angular.module("algoland")
             replace: true,
             templateUrl: "partials/algo.html",
             scope: {
-                showCategory: '=?',
-                algo: '='
+                showCategory: "=?",
+                showPublished: "=?",
+                algo: "="
             },
-            link: function(scope, element, attrs){
+            link: function(scope){
                 scope.showCategory = scope.showCategory !== undefined ? scope.showCategory : true;
+                scope.showPublished = scope.showPublished !== undefined ? scope.showPublished : true;
             }
         };
     });

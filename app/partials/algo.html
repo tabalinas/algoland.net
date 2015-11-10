@@ -2,5 +2,5 @@
     <h2 class="algo-title"><a href="/algo/{{ algo.name }}">{{ algo.title }}</a></h2>
     <div class="algo-category" ng-if="showCategory"><i class="fa fa-sitemap algo-category-icon"></i><a href="/algo#{{ algo.category.name }}">{{ algo.category.title }}</a></div>
     <div class="algo-description">{{ algo.description }}</div>
-    <div class="algo-published">Published <span class="algo-published-date">{{ algo.published | date:'MMM dd, yyyy' }}</span> by <a href="https://github.com/{{ algo.author }}" target="_blank"><i class="algo-author-icon fa fa-github"></i>{{ algo.author }}</a></div>
+    <div class="algo-published" ng-if="showPublished">Published <span class="algo-published-date">{{ algo.published | date:'MMM dd, yyyy' }}</span> by <a href="https://github.com/{{ algo.author }}" target="_blank"><i class="algo-author-icon fa fa-github"></i>{{ algo.author }}</a></div>
 </div>

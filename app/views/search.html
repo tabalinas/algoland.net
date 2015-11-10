@@ -4,6 +4,7 @@
             <div class="col-md-10">
                 <h1 class="page-header-text">Search Results</h1>
                 <p class="page-header-description">Searching for <strong>{{ searchQuery }}</strong></p>
+                <p class="page-header-description">Amount of found algorithms <strong>{{ algos.length }}</strong></p>
             </div>
         </div>
     </div>
@@ -17,12 +18,10 @@
                     <div ng-if="!algos.length">
                         No algorithm found for your request.
                     </div>
-                    <ul ng-if="algos.length" class="algo-search-list">
-                        <li class="algo-search-item" ng-repeat="algo in algos">
-                            <a href="/algo/{{ algo.name }}">{{ algo.title }} ({{ algo.category.title }})</a>
-                            <p class="algo-search-item-description">{{ algo.description }}</p>
-                        </li>
-                    </ul>
+                    <div ng-if="algos.length" class="search-algo-list">
+                        <al-algo algo="algo" show-published="false" ng-repeat="algo in algos">
+                        </al-algo>
+                    </div>
                 </div>
             </div>
         </div>
