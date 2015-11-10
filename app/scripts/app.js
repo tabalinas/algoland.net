@@ -71,9 +71,10 @@ app.run(["$location", "$rootScope", "$anchorScroll", function($location, $rootSc
     $rootScope.$on("$routeChangeSuccess", function(event, current) {
         $rootScope.title = current.$$route.title;
 
-        if($location.hash())
+        if($location.hash()) {
             setTimeout(function() {
                 $anchorScroll();
             });
+        }
     });
 }]);
