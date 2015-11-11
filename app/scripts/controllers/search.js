@@ -13,7 +13,16 @@ angular.module("algoland")
 
         $scope.searchQuery = searchQuery;
 
+        var searchRegExp = new RegExp(searchQuery, "g");
+        var searchHighlightReplacer = function(match) {
+            return "<span class='found-highlight'>" + match + "</span>";
+        };
+
         algoService.findAlgos(searchQuery).then(function(algos) {
-            $scope.algos = algos;
+            $scope.algos = algos.map(function(algo) {
+                algo.title = algo.title.replace(searchRegExp, searchHighlightReplacer);
+                algo.description = algo.description.replace(searchRegExp, searchHighlightReplacer);
+                return algo;
+            });
         });
     });

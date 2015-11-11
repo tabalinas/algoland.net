@@ -30,6 +30,7 @@ $footer-color: #8e8e8e;
 $footer-height: 140px;
 $content-padding: 60px;
 $site-margin-bottom: -$footer-height;
+$search-highlight: #ffff66;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -344,5 +345,9 @@ pre code {
         &:nth-child(2n) {
             background: $algo-list-item-bg;
         }
+    }
+
+    .found-highlight {
+        background: $search-highlight;
     }
 }
