@@ -218,8 +218,15 @@ pre code {
     }
 }
 
+$algo-padding: 1em;
+
 .algo {
-    margin-bottom: 2em;
+    padding: $algo-padding;
+    margin: 0 (-$algo-padding);
+
+    &:nth-child(2n) {
+        background: $algo-list-item-bg;
+    }
 
     &-title {
         margin: 0 0 .3em 0;
@@ -271,23 +278,14 @@ pre code {
 
     &-description {
         color: $grayed;
-        padding: 0 15px .4em 15px;
+        padding: 0 $algo-padding .4em $algo-padding;
         border-bottom: 3px solid $algo-category-border-color;
-        margin: 0 -15px;
+        margin: 0 (-$algo-padding);
         font-size: .9em;
     }
 
     &-algo-list {
         font-size: .8em;
-
-        .algo {
-            padding: 15px 15px;
-            margin: 0 -15px;
-
-            &:nth-child(2n) {
-                background: $algo-list-item-bg;
-            }
-        }
 
         .algo-description {
             margin: 0;
@@ -337,15 +335,6 @@ pre code {
 
 .search-algo-list {
     font-size: .8em;
-
-    .algo {
-        padding: 15px 15px;
-        margin: 0 -15px;
-
-        &:nth-child(2n) {
-            background: $algo-list-item-bg;
-        }
-    }
 
     .found-highlight {
         background: $search-highlight;
