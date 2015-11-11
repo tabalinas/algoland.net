@@ -72,6 +72,7 @@ pre code {
         }
 
         & > .container .site-brand {
+            padding: 0;
             margin-left: 0;
             font-weight: 700;
         }
@@ -118,6 +119,10 @@ pre code {
 
 .navbar {
 
+    &-header {
+        padding: 5px 0;
+    }
+
     &-collapse.collapsing,
     &-collapse.in {
         margin-top: 10px;
@@ -144,8 +149,8 @@ pre code {
     }
 
     &-toggle {
-        padding: 5px;
-        margin: 0;
+        padding: 10px;
+        margin: -5px;
 
         .icon-bar {
             background: #428bca;
