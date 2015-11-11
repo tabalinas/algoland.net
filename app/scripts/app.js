@@ -28,7 +28,7 @@ app.constant("hljs", window.hljs)
         algosUrl: "algos/catalog.json",
         algoInfoUrl: "algos/{category}/{algo}.md",
 
-        github: "tabalinas/algoland.net",
+        github: "algoland.net",
         twitter: "algolandnet",
 
         routes: [

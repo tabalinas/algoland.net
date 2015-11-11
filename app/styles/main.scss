@@ -177,18 +177,34 @@ pre code {
 
 }
 
-.footer-push {
-    height: $footer-height;
-}
+.footer {
+    &-push {
+        height: $footer-height;
+    }
 
-.footer-brand {
-    color: $brand-color;
-    font-weight: bold;
+    &-brand {
+        color: $brand-color;
+        font-weight: bold;
 
-    strong {
-        color: $brand-strong-color;
+        strong {
+            color: $brand-strong-color;
+        }
+    }
+
+    &-link {
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .fa {
+            margin-right: 5px;
+            font-size: $font-size-base + 6;
+            vertical-align: middle;
+        }
     }
 }
+
 
 .page {
     &-header {
