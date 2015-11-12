@@ -181,13 +181,11 @@ pre code {
     margin: 0 -15px;
 
     &-input {
-
         width: 100%;
         height: $search-bar-height;
         padding-left: $search-icon-padding;
         padding-right: $search-bar-height;
         border: none;
-        font-size: $font-size-base - 2;
     }
 
     &-icon {
@@ -204,6 +202,10 @@ pre code {
     .search-bar {
         float: right;
         margin-left: 25px;
+
+        &-input {
+            font-size: $font-size-base - 2;
+        }
     }
 }
 
