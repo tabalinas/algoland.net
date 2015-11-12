@@ -13,7 +13,7 @@ angular.module("algoland")
 
         $scope.searchQuery = searchQuery;
 
-        var searchRegExp = new RegExp(searchQuery, "g");
+        var searchRegExp = new RegExp(searchQuery, "gi");
         var searchHighlightReplacer = function(match) {
             return "<span class='found-highlight'>" + match + "</span>";
         };
