@@ -30,12 +30,15 @@ angular.module("algoland")
             };
 
             category.algos = categoryJSON.algos.map(function(algoJSON) {
+                var publishDate = algoJSON.published ? new Date(algoJSON.published) : new Date();
+
                 return {
                     name: algoJSON.name,
                     title: algoJSON.title || inflector.titleize(algoJSON.name),
                     description: algoJSON.description,
                     url: appConfig.algoInfoUrl.replace("{category}", category.name).replace("{algo}", algoJSON.name),
-                    published: moment(algoJSON.published ? new Date(algoJSON.published) : new Date()).fromNow(),
+                    publishDate: publishDate,
+                    published: moment(publishDate).fromNow(),
                     author: algoJSON.author,
                     category: category
                 };
@@ -95,7 +98,7 @@ angular.module("algoland")
 
             loadCatalog().then(function(algos) {
                 algos.sort(function(alg1, alg2) {
-                    return alg2.published - alg1.published;
+                    return alg2.publishDate - alg1.publishDate;
                 });
 
                 result.resolve(algos.slice(0, amount - 1));
