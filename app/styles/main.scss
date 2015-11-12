@@ -186,6 +186,7 @@ pre code {
         padding-left: $search-icon-padding;
         padding-right: $search-bar-height;
         border: none;
+        border-right: 0;
     }
 
     &-icon {
