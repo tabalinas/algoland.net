@@ -8,7 +8,7 @@
  * Controller of the algoland
  */
 angular.module("algoland")
-    .controller("SearchCtrl", function(algoService, $routeParams, $scope) {
+    .controller("SearchCtrl", function(_, algoService, $routeParams, $scope) {
         var searchQuery = $routeParams.query;
 
         $scope.searchQuery = searchQuery;
@@ -19,7 +19,7 @@ angular.module("algoland")
         };
 
         algoService.findAlgos(searchQuery).then(function(algos) {
-            $scope.algos = algos.map(function(algo) {
+            $scope.algos = _.map(algos, function(algo) {
                 algo.title = algo.title.replace(searchRegExp, searchHighlightReplacer);
                 algo.description = algo.description.replace(searchRegExp, searchHighlightReplacer);
                 return algo;

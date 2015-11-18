@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("algoland")
-    .factory("algoService", function(appConfig, moment, inflector, $http, $q) {
+    .factory("algoService", function(appConfig, moment, _, inflector, $http, $q) {
 
         var loadCatalog = function(options) {
             options = options || {};
@@ -10,7 +10,7 @@ angular.module("algoland")
 
             $http.get(appConfig.algosUrl)
                 .success(function(catalogJSON) {
-                    angular.forEach(catalogJSON, function(categoryJSON) {
+                    _.forEach(catalogJSON, function(categoryJSON) {
                         result.push.apply(result, mapCategory(categoryJSON, options.asTree));
                     });
                     deferred.resolve(result);
@@ -29,7 +29,7 @@ angular.module("algoland")
                 description: categoryJSON.description
             };
 
-            category.algos = categoryJSON.algos.map(function(algoJSON) {
+            category.algos = _.map(categoryJSON.algos, function(algoJSON) {
                 var publishDate = algoJSON.published ? new Date(algoJSON.published) : new Date();
 
                 return {
@@ -61,7 +61,7 @@ angular.module("algoland")
             var result = $q.defer();
 
             loadCatalog().then(function(algos) {
-                angular.forEach(algos, function(algo) {
+                _.forEach(algos, function(algo) {
                     if(algo.name === algoName) {
                         result.resolve(algo);
                     }
@@ -81,7 +81,7 @@ angular.module("algoland")
             loadCatalog().then(function(algos) {
                 var searchResult = [];
 
-                angular.forEach(algos, function(algo) {
+                _.forEach(algos, function(algo) {
                     if(searchIn(algo.title) || searchIn(algo.description)) {
                         searchResult.push(algo);
                     }

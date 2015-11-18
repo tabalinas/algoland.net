@@ -23,6 +23,7 @@ var app = angular.module("algoland", [
 app.constant("hljs", window.hljs)
     .constant("jQuery", window.jQuery)
     .constant("moment", window.moment)
+    .constant("_", window._)
     .constant("appConfig", {
         latestAlgosAmount: 10,
         algosUrl: "algos/catalog.json",
@@ -40,8 +41,8 @@ app.constant("hljs", window.hljs)
         ]
     });
 
-app.config(function($routeProvider, appConfig) {
-        angular.forEach(appConfig.routes, function(route) {
+app.config(function(_, $routeProvider, appConfig) {
+        _.forEach(appConfig.routes, function(route) {
             $routeProvider
                 .when(route.url, {
                     title: route.title,
