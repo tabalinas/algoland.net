@@ -1,3 +1,4 @@
+$text-color: #333;
 $font-size-base: 16px;
 $brand-primary: #1b93c7;
 $nav-link-hover-bg: darken($brand-primary, 10%);
@@ -35,6 +36,8 @@ $search-highlight: #ffff66;
 $search-bar-height: 35px;
 $algo-padding: 1em;
 
+$code-bg-color: $gray-bg;
+$code-linenums-color: lighten($grayed, 30%);
 
 .browsehappy {
     margin: 0.2em 0;
@@ -398,4 +401,39 @@ pre code {
     .found-highlight {
         background: $search-highlight;
     }
+}
+
+/* code prettify */
+pre {
+    padding: 10px 0;
+    background: $code-bg-color;
+    font-size: 0;
+    white-space: pre;
+    word-wrap: normal;
+
+    code {
+        font-size: 0;
+        white-space: pre;
+        word-wrap: normal;
+    }
+
+    ol {
+        background: $code-bg-color;
+        color: $code-linenums-color;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    li {
+        list-style-type: decimal !important;
+        background: $code-bg-color !important;
+    }
+    
+    .com       { color: #008000; }
+    .str, .tag { color: #A31515; }
+    .kwd, .atv { color: #0000FF; }
+    .typ       { color: #2B91AF; }
+    .lit, .atn { color: $text-color; }
+    .pun, .pln { color: $text-color; }
+    .dec       { color: #800080; }
 }

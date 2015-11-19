@@ -20,10 +20,10 @@ var app = angular.module("algoland", [
     "angularUtils.directives.dirDisqus"
 ]);
 
-app.constant("hljs", window.hljs)
-    .constant("jQuery", window.jQuery)
+app.constant("jQuery", window.jQuery)
     .constant("moment", window.moment)
     .constant("_", window._)
+    .constant("prettyPrintOne", window.prettyPrintOne)
     .constant("appConfig", {
         latestAlgosAmount: 10,
         algosUrl: "algos/catalog.json",
@@ -58,12 +58,12 @@ app.config(function(_, $routeProvider, appConfig) {
     .config(function($locationProvider) {
         $locationProvider.html5Mode(true);
     })
-    .config(function(markedProvider, hljs) {
+    .config(function(markedProvider, prettyPrintOne) {
         markedProvider.setOptions({
             gfm: true,
             tables: true,
             highlight: function(code) {
-                return hljs.highlightAuto(code).value;
+                return prettyPrintOne(code , "csharp", true);
             }
         });
     });
