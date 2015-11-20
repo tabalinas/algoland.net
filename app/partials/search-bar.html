@@ -1,4 +1,7 @@
 <div class="search-bar">
-    <input type="text" class="search-bar-input" placeholder="Find algorithm" ng-model="searchBar.searchQuery" ng-enter="searchBar.search()" />
+    <input type="text" class="search-bar-input" placeholder="Find algorithm" ng-model="searchBar.searchQuery"
+           typeahead="algoName for algoName in searchBar.algoNames | filter:$viewValue | limitTo:8 | orderBy"
+           typeahead-wait-ms="400" typeahead-focus-first="false"
+           typeahead-on-select="searchBar.search()" ng-enter="searchBar.search()" />
     <i class="fa fa-search search-bar-icon"></i>
 </div>

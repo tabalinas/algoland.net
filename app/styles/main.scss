@@ -200,6 +200,17 @@ pre code {
         opacity: .3;
         pointer-events: none;
     }
+
+    .dropdown-menu {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        font-size: $font-size-base - 2;
+
+        & > li > a {
+            line-height: 2;
+        }
+    }
 }
 
 @media (min-width: $screen-sm-min) {

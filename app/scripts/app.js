@@ -16,6 +16,7 @@ var app = angular.module("algoland", [
     "ngRoute",
     "ngSanitize",
     "ngTouch",
+    "ui.bootstrap",
     "hc.marked",
     "angularUtils.directives.dirDisqus"
 ]);

@@ -47,6 +47,16 @@ angular.module("algoland")
             return asTree ? [category] : category.algos;
         };
 
+        var getAlgosList = function() {
+            var result = $q.defer();
+
+            loadCatalog().then(function(algos) {
+                result.resolve(algos);
+            });
+
+            return result.promise;
+        };
+
         var getAlgosTree = function() {
             var result = $q.defer();
 
@@ -108,6 +118,7 @@ angular.module("algoland")
         };
 
         return {
+            getAlgosList: getAlgosList,
             getAlgosTree: getAlgosTree,
             getLatestAlgos: getLatestAlgos,
             getAlgo: getAlgo,
